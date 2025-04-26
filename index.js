@@ -36,6 +36,7 @@ import MediaPlayerFactory from './src/streaming/MediaPlayerFactory.js';
 import Debug from './src/core/Debug.js';
 import Constants from './src/streaming/constants/Constants.js';
 import { supportsMediaSource } from './src/streaming/utils/Capabilities.js';
+import Utils from './src/core/Utils.js';
 
 dashjs.Protection = Protection;
 dashjs.MetricsReporting = MetricsReporting;
@@ -43,6 +44,7 @@ dashjs.MediaPlayerFactory = MediaPlayerFactory;
 dashjs.Debug = Debug;
 dashjs.supportsMediaSource = supportsMediaSource;
 dashjs.Constants = Constants;
+dashjs.Utils = Utils;
 
 export default dashjs;
-export { MediaPlayer, Protection, MetricsReporting, MediaPlayerFactory, Debug, supportsMediaSource, Constants };
+export { MediaPlayer, Protection, MetricsReporting, MediaPlayerFactory, Debug, supportsMediaSource, Constants, Utils };

@@ -12,11 +12,21 @@ modernConfig.module.rules[0].use.push({
         sourceType: 'unambiguous',
         presets: [
             [
-                '@babel/preset-env'
+                '@babel/preset-env',
+                {
+                    useBuiltIns: 'usage',
+                    targets: {
+                        chrome: '68'
+                    },
+                    bugfixes: true,
+                    corejs: '3.39.0',
+                }
             ],
         ],
         plugins: [
-            '@babel/plugin-transform-runtime'
+            '@babel/plugin-transform-runtime',
+            '@babel/plugin-proposal-nullish-coalescing-operator',
+            '@babel/plugin-proposal-optional-chaining'
         ],
     },
 },)

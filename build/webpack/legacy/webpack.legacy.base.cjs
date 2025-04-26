@@ -16,7 +16,7 @@ legacyConfig.module.rules[0].use.push({
                 {
                     useBuiltIns: 'usage',
                     targets: {
-                        ie: '11',
+                        chrome: '38'
                     },
                     corejs: '3.39.0',
                 }
@@ -24,7 +24,7 @@ legacyConfig.module.rules[0].use.push({
         ],
         plugins: [
             '@babel/plugin-transform-runtime',
-            '@babel/plugin-transform-parameters'
+            '@babel/plugin-transform-parameters',
         ],
     },
 },)

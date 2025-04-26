@@ -1,6 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
+const NODE_VERSION = '18';
 
 const precommitTemplate = `#!/usr/bin/env node
 
@@ -24,7 +25,13 @@ exec('npm run lint', {
 
 const callerTemplate = `#!/bin/sh
 
-node .git/hooks/pre-commit.cjs;`
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \\. "$NVM_DIR/nvm.sh"
+
+nvm use ${NODE_VERSION} >/dev/null
+
+node .git/hooks/pre-commit.cjs
+`;
 
 const pathToHooksFolder = path.join(`${__dirname}`, '.git', 'hooks');
 

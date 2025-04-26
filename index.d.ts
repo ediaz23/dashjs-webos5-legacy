@@ -5913,5 +5913,27 @@ declare namespace dashjs {
 
     export type RequestFilter = (request: LicenseRequest) => Promise<any>;
     export type ResponseFilter = (response: LicenseResponse) => Promise<any>;
-}
 
+    export class Utils {
+        static mixin<T>(dest: T, source: any, copy: (input: any) => any): T;
+        static clone<T>(src: T): T;
+        static addAdditionalQueryParameterToUrl(url: string, params: Array<{ key: string, value: string }>): string;
+        static removeQueryParameterFromUrl(url: string, queryParameter: string): string;
+        static parseHttpHeaders(headerStr: string): { [key: string]: string };
+        static parseQueryParams(queryParamString: string): Array<{ key: string, value: string }>;
+        static generateUuid(): string;
+        static generateHashCode(string: string): number;
+        static getRelativeUrl(originalUrl: string, targetUrl: string): string;
+        static getHostFromUrl(urlString: string): string | null;
+        static parseUserAgent(ua?: string | null): {};
+        static stringHasProtocol(string: string): boolean;
+        static bufferSourceToDataView(bufferSource: ArrayBuffer | ArrayBufferView): DataView;
+        static bufferSourceToInt8(bufferSource: ArrayBuffer | ArrayBufferView): Uint8Array;
+        static uint8ArrayToString(uint8Array: Uint8Array): string;
+        static bufferSourceToHex(data: ArrayBuffer | ArrayBufferView): string;
+        static toDataView<T extends DataView | Uint8Array>(bufferSource: ArrayBuffer | ArrayBufferView, Type: new (buffer: ArrayBuffer, byteOffset: number, length: number) => T): T;
+        static getArrayBuffer(view: ArrayBuffer | ArrayBufferView): ArrayBuffer;
+        static getCodecFamily(codecString: string): string;
+        private static _getCodecParts(codecString: string): { base: string, profile: string };
+    }
+}
