@@ -1,5 +1,9 @@
 <img src="https://cloud.githubusercontent.com/assets/2762250/7824984/985c3e76-03bc-11e5-807b-1402bde4fe56.png" width="400">
 
+# dashjs-webos5-legacy
+
+Fork of dash.js adapted for webOS 5 (Chromium 68) compatibility.
+
 ## Overview
 
 dash.js is a JavaScript based implementation for the playback of MPEG DASH content in browser based
