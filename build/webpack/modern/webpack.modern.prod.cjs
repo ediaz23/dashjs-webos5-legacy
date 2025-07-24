@@ -7,12 +7,12 @@ const {
     configCommonMinProdUmd
 } = require('../common/webpack.common.prod.cjs');
 
-const configLegacyDebugUmd = merge(umdConfig, configCommonDebugProdUmd);
+const configModernDebugUmd = merge(umdConfig, configCommonDebugProdUmd);
 
-const configLegacyMinUmd = merge(umdConfig, configCommonMinProdUmd);
+const configModernMinUmd = merge(umdConfig, configCommonMinProdUmd);
 
-const configLegacyDebugEsm = merge(esmConfig, configCommonDebugProdEsm);
+const configModernDebugEsm = merge(esmConfig, configCommonDebugProdEsm);
 
-const configLegacyMinEsm = merge(esmConfig, configCommonMinProdEsm);
+const configModernMinEsm = merge(esmConfig, configCommonMinProdEsm);
 
-module.exports = [configLegacyDebugUmd, configLegacyMinUmd, configLegacyDebugEsm, configLegacyMinEsm];
+module.exports = [configModernDebugUmd, configModernMinUmd, configModernDebugEsm, configModernMinEsm];

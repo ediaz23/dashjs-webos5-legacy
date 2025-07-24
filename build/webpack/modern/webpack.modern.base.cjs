@@ -3,33 +3,37 @@ const { merge } = require('webpack-merge');
 const { commonBaseConfig } = require('../common/webpack.common.base.cjs');
 
 const modernConfig = merge(commonBaseConfig, {
-    target: ['browserslist']
+    target: ['browserslist'],
+    module: {
+        rules: [{
+            test: /\.(js)$/,
+            exclude: [/core-js/],
+            loader: 'babel-loader',
+            options: {
+                sourceType: 'unambiguous',
+                presets: [
+                    [
+                        '@babel/preset-env',
+                        {
+                            useBuiltIns: 'usage',
+                            targets: {
+                                chrome: '68'
+                            },
+                            bugfixes: true,
+                            corejs: '3.39.0',
+                        }
+                    ],
+                ],
+                plugins: [
+                    '@babel/plugin-transform-runtime',
+                    '@babel/plugin-proposal-nullish-coalescing-operator',
+                    '@babel/plugin-proposal-optional-chaining'
+                ],
+            },
+        }]
+    }
 });
 
-modernConfig.module.rules[0].use.push({
-    loader: 'babel-loader',
-    options: {
-        sourceType: 'unambiguous',
-        presets: [
-            [
-                '@babel/preset-env',
-                {
-                    useBuiltIns: 'usage',
-                    targets: {
-                        chrome: '68'
-                    },
-                    bugfixes: true,
-                    corejs: '3.39.0',
-                }
-            ],
-        ],
-        plugins: [
-            '@babel/plugin-transform-runtime',
-            '@babel/plugin-proposal-nullish-coalescing-operator',
-            '@babel/plugin-proposal-optional-chaining'
-        ],
-    },
-},)
 
 const umdConfig = merge(modernConfig, {
     output: {
