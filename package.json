@@ -1,6 +1,6 @@
 {
     "name": "dashjs-webos5",
-    "version": "5.0.103",
+    "version": "5.1.100",
     "description": "dash.js fork targeting webOS 5 and Chromium 68 compatibility, with adjustments for webos 3 and 4",
     "author": "Esteban Díaz <esteban.diazt23@gmail.com>, Dash Industry Forum",
     "license": "BSD-3-Clause",
@@ -107,7 +107,7 @@
         "yargs": "^17.7.2"
     },
     "dependencies": {
-        "@svta/common-media-library": "^0.12.4",
+        "@svta/common-media-library": "^0.17.1",
         "bcp-47-match": "^2.0.3",
         "bcp-47-normalize": "^2.3.0",
         "codem-isoboxer": "0.3.10",
@@ -137,5 +137,8 @@
         "webos",
         "chromium68",
         "legacy"
-    ]
+    ],
+    "engines": {
+        "node": ">=20"
+    }
 }
